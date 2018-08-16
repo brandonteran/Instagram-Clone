@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1b-5M-cAb">
-                                <rect key="frame" x="144" y="110" width="87.5" height="48"/>
+                                <rect key="frame" x="144" y="105" width="87.5" height="48"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -32,7 +32,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" keyboardAppearance="light" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="light" returnKeyType="continue" textContentType="password"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -43,14 +43,14 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Yh7-x4-mLI" customClass="UITextFieldCustom" customModule="InstagramClone" customModuleProvider="target">
-                                <rect key="frame" x="40" y="258" width="295" height="40"/>
+                                <rect key="frame" x="40" y="253" width="295" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="7AS-uW-N2v"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" keyboardAppearance="light"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="light" returnKeyType="continue" textContentType="username"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -110,25 +110,39 @@
                                     <action selector="signIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OIL-mM-SNf"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Vpw-mR-eYI">
+                                <rect key="frame" x="40" y="193" width="295" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Qhx-xf-ut4"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="light" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.61176470589999998" green="0.0" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="PF7-nn-5Z1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="1ey-HO-tgu"/>
+                            <constraint firstItem="Vpw-mR-eYI" firstAttribute="top" secondItem="x1b-5M-cAb" secondAttribute="bottom" constant="40" id="2Sh-En-55w"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VUe-pI-J2k" secondAttribute="trailing" constant="55" id="5Hx-L3-vWz"/>
-                            <constraint firstItem="PF7-nn-5Z1" firstAttribute="top" secondItem="Yh7-x4-mLI" secondAttribute="bottom" constant="15" id="C8j-oM-4Df"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vpw-mR-eYI" secondAttribute="trailing" constant="40" id="5Xm-iI-sy5"/>
+                            <constraint firstItem="PF7-nn-5Z1" firstAttribute="top" secondItem="Yh7-x4-mLI" secondAttribute="bottom" constant="20" id="C8j-oM-4Df"/>
                             <constraint firstItem="Wl9-R7-gmx" firstAttribute="top" secondItem="PF7-nn-5Z1" secondAttribute="bottom" constant="60" id="Gnn-9b-eMX"/>
                             <constraint firstItem="x1b-5M-cAb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KGj-Db-7J9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PF7-nn-5Z1" secondAttribute="trailing" constant="40" id="MLP-hM-Sq0"/>
-                            <constraint firstItem="Yh7-x4-mLI" firstAttribute="top" secondItem="x1b-5M-cAb" secondAttribute="bottom" constant="100" id="Svb-ro-O7j"/>
                             <constraint firstItem="Yh7-x4-mLI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="VKD-bX-sew"/>
                             <constraint firstItem="VUe-pI-J2k" firstAttribute="top" secondItem="PF7-nn-5Z1" secondAttribute="bottom" constant="60" id="oZA-BV-ola"/>
                             <constraint firstItem="Wl9-R7-gmx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="64" id="pMp-PQ-9Ky"/>
+                            <constraint firstItem="Yh7-x4-mLI" firstAttribute="top" secondItem="Vpw-mR-eYI" secondAttribute="bottom" constant="20" id="plM-aU-lgJ"/>
+                            <constraint firstItem="Vpw-mR-eYI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="rft-OM-iHJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Yh7-x4-mLI" secondAttribute="trailing" constant="40" id="yGk-6z-Wpd"/>
                             <constraint firstItem="PF7-nn-5Z1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zP9-Wc-bsI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="emailTextField" destination="Vpw-mR-eYI" id="gzE-ye-qNb"/>
                         <outlet property="passwordTextField" destination="PF7-nn-5Z1" id="Jz7-v7-w8Q"/>
                         <outlet property="usernameTextField" destination="Yh7-x4-mLI" id="Lhf-Nb-mal"/>
                         <segue destination="QOm-78-ixb" kind="presentation" id="OSk-TE-LWt"/>
