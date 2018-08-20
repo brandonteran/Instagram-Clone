@@ -16,7 +16,6 @@
 		07DAF33E212295110081B7BF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DAF33D212295110081B7BF /* LoginViewController.swift */; };
 		07DAF3412123E6D40081B7BF /* UIButtonCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DAF3402123E6D40081B7BF /* UIButtonCustom.swift */; };
 		07DAF3432123E6E70081B7BF /* UIViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DAF3422123E6E70081B7BF /* UIViewCustom.swift */; };
-		07DAF3452123E6FC0081B7BF /* UITextFieldCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DAF3442123E6FC0081B7BF /* UITextFieldCustom.swift */; };
 		531C8C6F75AE7DA5BB742E7A /* Pods_InstagramClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C9DFE321E7C68EB5C2844B /* Pods_InstagramClone.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +31,6 @@
 		07DAF33D212295110081B7BF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		07DAF3402123E6D40081B7BF /* UIButtonCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonCustom.swift; sourceTree = "<group>"; };
 		07DAF3422123E6E70081B7BF /* UIViewCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewCustom.swift; sourceTree = "<group>"; };
-		07DAF3442123E6FC0081B7BF /* UITextFieldCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldCustom.swift; sourceTree = "<group>"; };
 		73C9DFE321E7C68EB5C2844B /* Pods_InstagramClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		990D99F0FD0BF26D08C340EF /* Pods-InstagramClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramClone.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramClone/Pods-InstagramClone.release.xcconfig"; sourceTree = "<group>"; };
 		EF9DE6C8FB409017B8CCDD0B /* Pods-InstagramClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramClone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramClone/Pods-InstagramClone.debug.xcconfig"; sourceTree = "<group>"; };
@@ -97,7 +95,6 @@
 			children = (
 				07DAF3402123E6D40081B7BF /* UIButtonCustom.swift */,
 				07DAF3422123E6E70081B7BF /* UIViewCustom.swift */,
-				07DAF3442123E6FC0081B7BF /* UITextFieldCustom.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -235,7 +232,6 @@
 			files = (
 				07DAF3412123E6D40081B7BF /* UIButtonCustom.swift in Sources */,
 				07DAF33E212295110081B7BF /* LoginViewController.swift in Sources */,
-				07DAF3452123E6FC0081B7BF /* UITextFieldCustom.swift in Sources */,
 				07DAF2D9211E00330081B7BF /* ViewController.swift in Sources */,
 				07DAF2D7211E00330081B7BF /* AppDelegate.swift in Sources */,
 				079A6C192125143A00115947 /* HomeViewController.swift in Sources */,
