@@ -19,10 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.initialize(
             with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
                 configuration.applicationId = "instagramclone-app"
-                configuration.clientKey = "monchi102002398"
-                configuration.server = "http://instagramclone-app.herokuapp.com/parse"
+                configuration.clientKey     = "monchi102002398"
+                configuration.server        = "http://instagramclone-app.herokuapp.com/parse"
             })
         )
+        
+        if PFUser.current() != nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
+        }
         
         return true
     }

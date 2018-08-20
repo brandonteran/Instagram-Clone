@@ -1,5 +1,5 @@
 //
-//  UIButtonCustom.swift
+//  CustomButton.swift
 //  InstagramClone
 //
 //  Created by Teran on 8/14/18.
@@ -9,7 +9,7 @@
 import UIKit
 
 
-class UIButtonCustom: UIButton {
+class CustomButton: UIButton {
     @IBInspectable var cornerRadius: CGFloat = 0.0 {
         didSet {
             self.layer.cornerRadius = cornerRadius

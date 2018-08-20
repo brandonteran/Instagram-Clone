@@ -7,4 +7,5 @@ target 'InstagramClone' do
 
   # Pods for InstagramClone
 	pod 'Parse'
+    pod 'ParseUI'
 end

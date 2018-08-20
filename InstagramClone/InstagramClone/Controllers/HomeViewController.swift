@@ -7,29 +7,43 @@
 //
 
 import UIKit
+import Parse
+
 
 class HomeViewController: UIViewController {
-
+    @IBOutlet weak var postsTableView: UITableView!
+    
+    
+    @IBAction func LogUserOut(_ sender: UIBarButtonItem) {
+        PFUser.logOutInBackground { (error: Error?) in
+            if error != nil {
+                print("Error logging user out")
+            }
+            else {
+                print("Logged out")
+            }
+        }
+    }
+    
+    
+    fileprivate func getUserPosts() {
+        let query = PFQuery()
+        query.whereKey("username", lessThan: 21)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        postsTableView.delegate   = self
+        postsTableView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+}
+
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
