@@ -24,11 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         )
         
-        if PFUser.current() != nil {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
-        }
-        
         return true
     }
     

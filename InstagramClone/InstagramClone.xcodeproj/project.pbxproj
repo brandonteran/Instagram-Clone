@@ -10,9 +10,11 @@
 		0713CE77212A4D4900E74F25 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CE76212A4D4900E74F25 /* ParseClient.swift */; };
 		0713CE79212A4EAE00E74F25 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CE78212A4EAE00E74F25 /* PostCell.swift */; };
 		0713CE7D212A5D1500E74F25 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CE7C212A5D1500E74F25 /* Post.swift */; };
+		0713CE7F212B68FF00E74F25 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CE7E212B68FF00E74F25 /* ProfileViewController.swift */; };
+		0713CE81212B834600E74F25 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CE80212B834600E74F25 /* CreatePostViewController.swift */; };
+		0713CE83212D0D7900E74F25 /* ChooseFromAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CE82212D0D7900E74F25 /* ChooseFromAlbumViewController.swift */; };
 		079A6C192125143A00115947 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A6C182125143A00115947 /* HomeViewController.swift */; };
 		07DAF2D7211E00330081B7BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DAF2D6211E00330081B7BF /* AppDelegate.swift */; };
-		07DAF2D9211E00330081B7BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DAF2D8211E00330081B7BF /* ViewController.swift */; };
 		07DAF2DC211E00330081B7BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07DAF2DA211E00330081B7BF /* Main.storyboard */; };
 		07DAF2DE211E00370081B7BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07DAF2DD211E00370081B7BF /* Assets.xcassets */; };
 		07DAF2E1211E00370081B7BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07DAF2DF211E00370081B7BF /* LaunchScreen.storyboard */; };
@@ -25,10 +27,12 @@
 		0713CE76212A4D4900E74F25 /* ParseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
 		0713CE78212A4EAE00E74F25 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		0713CE7C212A5D1500E74F25 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		0713CE7E212B68FF00E74F25 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		0713CE80212B834600E74F25 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
+		0713CE82212D0D7900E74F25 /* ChooseFromAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFromAlbumViewController.swift; sourceTree = "<group>"; };
 		079A6C182125143A00115947 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		07DAF2D3211E00330081B7BF /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07DAF2D6211E00330081B7BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		07DAF2D8211E00330081B7BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		07DAF2DB211E00330081B7BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		07DAF2DD211E00370081B7BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07DAF2E0211E00370081B7BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -97,9 +101,11 @@
 		07DAF33C212294EF0081B7BF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				07DAF2D8211E00330081B7BF /* ViewController.swift */,
 				07DAF33D212295110081B7BF /* LoginViewController.swift */,
 				079A6C182125143A00115947 /* HomeViewController.swift */,
+				0713CE7E212B68FF00E74F25 /* ProfileViewController.swift */,
+				0713CE80212B834600E74F25 /* CreatePostViewController.swift */,
+				0713CE82212D0D7900E74F25 /* ChooseFromAlbumViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -249,10 +255,12 @@
 				07DAF3412123E6D40081B7BF /* CustomButton.swift in Sources */,
 				07DAF33E212295110081B7BF /* LoginViewController.swift in Sources */,
 				0713CE77212A4D4900E74F25 /* ParseClient.swift in Sources */,
-				07DAF2D9211E00330081B7BF /* ViewController.swift in Sources */,
 				07DAF2D7211E00330081B7BF /* AppDelegate.swift in Sources */,
 				0713CE7D212A5D1500E74F25 /* Post.swift in Sources */,
+				0713CE83212D0D7900E74F25 /* ChooseFromAlbumViewController.swift in Sources */,
 				079A6C192125143A00115947 /* HomeViewController.swift in Sources */,
+				0713CE7F212B68FF00E74F25 /* ProfileViewController.swift in Sources */,
+				0713CE81212B834600E74F25 /* CreatePostViewController.swift in Sources */,
 				0713CE79212A4EAE00E74F25 /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

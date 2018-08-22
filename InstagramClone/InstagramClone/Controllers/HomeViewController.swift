@@ -10,8 +10,12 @@ import UIKit
 import Parse
 
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var postsTableView: UITableView!
+    
+    
+    var posts     : [Post] = []
+    var raw_posts : [PFObject] = []
     
     
     @IBAction func LogUserOut(_ sender: UIBarButtonItem) {
@@ -21,14 +25,33 @@ class HomeViewController: UIViewController {
             }
             else {
                 print("Logged out")
+                self.performSegue(withIdentifier: "LogoutSegue", sender: nil)
             }
         }
     }
     
     
-    fileprivate func getUserPosts() {
-        let query = PFQuery()
-        query.whereKey("username", lessThan: 21)
+    fileprivate func getUserPosts(completion: @escaping (_ success: Bool, _ error: Error?) -> Void) -> Void {
+        let query = PFQuery(className: "Post")
+        query.order(byDescending: "createdAt")
+        query.includeKey("author")
+        query.limit = 20
+        
+        // fetch data asynchronously
+        query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) -> Void in
+            if let posts = posts {
+                print("Posts are: ", posts)
+                // do something with the data fetched
+                self.raw_posts = posts
+                completion(true, nil)
+                
+            } else {
+                print("Error! : ", error?.localizedDescription ?? "No localized description for error")
+                // handle error
+                completion(false, error)
+            }
+            self.postsTableView.reloadData()
+        }
     }
     
     
@@ -37,13 +60,44 @@ class HomeViewController: UIViewController {
         postsTableView.delegate   = self
         postsTableView.dataSource = self
     }
-
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+//        activityIndicator.startAnimating()
+        
+        getUserPosts(completion: {(success: Bool, error: Error?) -> Void in
+//            self.activityIndicator.stopAnimating()
+            
+            if success {
+                print ("successfully received data")
+                
+            } else {
+                print (error?.localizedDescription ?? "no error")
+            }
+        })
+    }
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-}
-
-
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.raw_posts.count != 0 {
+            return self.raw_posts.count
+        } else {
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
+        cell.post = self.raw_posts[indexPath.row]
+        return cell
+    }
 }
