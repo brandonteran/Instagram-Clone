@@ -1,6 +1,6 @@
 # Project 4 - *Instagram-Clone*
 
-**Name of your app** is a photo sharing app using Parse as its backend.
+**Instagram-Clone** is a photo sharing app using Parse as its backend.
 
 Time spent: **16** hours spent in total
 
