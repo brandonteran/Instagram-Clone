@@ -9,40 +9,65 @@
 import UIKit
 import Parse
 import ParseUI
+import Toucan
 
 
-class CreatePostViewController: UIViewController {
-    @IBOutlet weak var postImageView     : UIImageView!
-    @IBOutlet weak var captionTextField  : UITextField!
-    @IBOutlet weak var activityIndicator : UIActivityIndicatorView!
-    
-    
-    var postImage: UIImage?
+class CreatePostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var captionText: UITextField!
+    let imagePC = UIImagePickerController()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        postImageView.image = postImage
-        print("Loaded image")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Post", style: .plain, target: self, action: #selector(uploadPost))
-        
+        imagePC.delegate = self
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     
-    @objc func uploadPost() -> Void {
-        activityIndicator.startAnimating()
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [String : Any]) {
+        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        //let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+        let resizedImage = Toucan.Resize.resizeImage(originalImage, size: CGSize(width: 414, height: 414))
+        imageView.image = resizedImage
+        imageView.contentMode = .scaleAspectFill
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func onTap(_ sender: AnyObject) {
+        print("tap")
+        imagePC.allowsEditing = true
+        imagePC.sourceType = UIImagePickerControllerSourceType.photoLibrary
         
-        Post.postUserImage(image: postImage, withCaption: captionTextField.text, withCompletion: { (success: Bool, error: Error?) -> Void in
-            DispatchQueue.main.async {
-                self.postImageView.image = nil
-                self.captionTextField.text = nil
-                self.activityIndicator.stopAnimating()
-            }}
-        )
+        self.present(imagePC, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func onCancel(_ sender: AnyObject) {
+        self.performSegue(withIdentifier: "CancelSegue", sender: nil)
+    }
+    
+    
+    @IBAction func onShare(_ sender: AnyObject) {
+        Post.postUserImage(image: imageView.image, withCaption: captionText.text){ (success, error) in
+            if success {
+                print("post successful")
+                self.performSegue(withIdentifier: "SubmitSegue", sender: nil)
+                
+            }
+            else if let e = error as NSError? {
+                print (e.localizedDescription)
+            }
+        }
     }
     
 

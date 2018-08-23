@@ -64,7 +64,7 @@ class LoginViewController: UIViewController {
     
     func login(username: String, password: String) {
         PFUser.logInWithUsername(inBackground: username, password: password) { (user: PFUser?, error: Error?) -> Void in
-            print("Username: \(user?.username), Password: \(user?.password)")
+            print("Username: \(user!.username), Password: \(user!.password)")
             if user != nil {
                 self.activityIndicator.stopAnimating()
                 self.segueToProfileViewController()

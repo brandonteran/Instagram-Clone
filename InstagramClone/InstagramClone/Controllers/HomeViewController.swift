@@ -11,93 +11,130 @@ import Parse
 
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet weak var postsTableView: UITableView!
+    var posts : [Post] = []
+    
+
+//    @IBOutlet weak var composeButton: UIButton!
     
     
-    var posts     : [Post] = []
-    var raw_posts : [PFObject] = []
-    
-    
-    @IBAction func LogUserOut(_ sender: UIBarButtonItem) {
-        PFUser.logOutInBackground { (error: Error?) in
-            if error != nil {
-                print("Error logging user out")
-            }
-            else {
-                print("Logged out")
-                self.performSegue(withIdentifier: "LogoutSegue", sender: nil)
-            }
-        }
-    }
-    
-    
-    fileprivate func getUserPosts(completion: @escaping (_ success: Bool, _ error: Error?) -> Void) -> Void {
-        let query = PFQuery(className: "Post")
-        query.order(byDescending: "createdAt")
-        query.includeKey("author")
-        query.limit = 20
-        
-        // fetch data asynchronously
-        query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) -> Void in
-            if let posts = posts {
-                print("Posts are: ", posts)
-                // do something with the data fetched
-                self.raw_posts = posts
-                completion(true, nil)
-                
-            } else {
-                print("Error! : ", error?.localizedDescription ?? "No localized description for error")
-                // handle error
-                completion(false, error)
-            }
-            self.postsTableView.reloadData()
-        }
-    }
-    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        postsTableView.delegate   = self
-        postsTableView.dataSource = self
-    }
-    
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        tableView.dataSource = self
+        tableView.delegate = self
+
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         
-//        activityIndicator.startAnimating()
+        tableView.insertSubview(refreshControl, at: 0)
+        self.tableView.reloadData()
+        fetchPosts()
         
-        getUserPosts(completion: {(success: Bool, error: Error?) -> Void in
-//            self.activityIndicator.stopAnimating()
-            
-            if success {
-                print ("successfully received data")
-                
-            } else {
-                print (error?.localizedDescription ?? "no error")
-            }
-        })
     }
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+//    @IBAction func onLogout(_ sender: Any) {
+//        NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
+//        self.performSegue(withIdentifier: "logoutSegue", sender: nil)
+//
+//    }
+    //    @IBAction func onLogout(_ sender: AnyObject) {
+    //        PFUser.logOutInBackground { (error: Error?) in
+    //            if let error = error {
+    //                print("User logout failed: \(error.localizedDescription)")
+    //            } else {
+    //                print("User logout successful")
+    //            //need to segue back to login screen
+    //                self.performSegue(withIdentifier: "logoutSegue", sender: nil)
+    //            }
+    //        }
+    //
+    //    }
+    
+    @IBAction func onCompose(_ sender: AnyObject) {
+        self.performSegue(withIdentifier: "ComposeSegue", sender: nil)
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.raw_posts.count != 0 {
-            return self.raw_posts.count
-        } else {
-            return 0
-        }
+        return posts.count
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
-        cell.post = self.raw_posts[indexPath.row]
+        let post    = posts[indexPath.row]
+        let caption = post.caption
+        cell.postCaption.text = caption
+        
+        if let imageFile : PFFile = post.media {
+            imageFile.getDataInBackground(block: {(data, error) in
+                if error == nil {
+                    DispatchQueue.main.async {
+                        let image = UIImage(data: data!)
+                        cell.postImage.image = image
+                    }
+                } else{
+                    print(error!.localizedDescription)
+                }
+            })
+        }
+        
         return cell
     }
+    
+    
+    @objc func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        
+        // ... Create the URLRequest `myRequest` ...
+        
+        // Configure session so that completion handler is executed on main UI thread
+        //let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        //let task: URLSessionDataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+        fetchPosts()
+        // ... Use the new data to update the data source ...
+        // Reload the tableView now that there is new data
+        tableView.reloadData()
+        // Tell the refreshControl to stop spinning
+        refreshControl.endRefreshing()
+    }
+    
+    
+    func fetchPosts() {
+        let query = Post.query()
+        query?.order(byDescending: "createdAt")
+        query?.includeKey("author")
+        query?.limit = 20
+        
+        // fetch data asynchronously
+        query?.findObjectsInBackground { (Post, error: Error?) -> Void in
+            if let posts = Post {
+                self.posts = posts as! [Post]
+                self.tableView.reloadData()
+            } else {
+                print("fetch failed")
+            }
+        }
+    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//        if(sender != nil) {
+//
+//            let cell = sender as! UITableViewCell
+//            if let indexPath = tableView.indexPath(for: cell) {
+//                let post = posts[indexPath.row]
+//                let detailViewController = segue.destination as! DetailViewController
+//                detailViewController.post = post
+//
+//                let postCell = sender as! PostCell
+//                detailViewController.postImage = postCell.postImage.image!
+//            }
+//        }
+//    }
 }

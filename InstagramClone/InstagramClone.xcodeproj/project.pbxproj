@@ -12,7 +12,6 @@
 		0713CE7D212A5D1500E74F25 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CE7C212A5D1500E74F25 /* Post.swift */; };
 		0713CE7F212B68FF00E74F25 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CE7E212B68FF00E74F25 /* ProfileViewController.swift */; };
 		0713CE81212B834600E74F25 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CE80212B834600E74F25 /* CreatePostViewController.swift */; };
-		0713CE83212D0D7900E74F25 /* ChooseFromAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CE82212D0D7900E74F25 /* ChooseFromAlbumViewController.swift */; };
 		079A6C192125143A00115947 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A6C182125143A00115947 /* HomeViewController.swift */; };
 		07DAF2D7211E00330081B7BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DAF2D6211E00330081B7BF /* AppDelegate.swift */; };
 		07DAF2DC211E00330081B7BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07DAF2DA211E00330081B7BF /* Main.storyboard */; };
@@ -29,7 +28,6 @@
 		0713CE7C212A5D1500E74F25 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		0713CE7E212B68FF00E74F25 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0713CE80212B834600E74F25 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
-		0713CE82212D0D7900E74F25 /* ChooseFromAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFromAlbumViewController.swift; sourceTree = "<group>"; };
 		079A6C182125143A00115947 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		07DAF2D3211E00330081B7BF /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07DAF2D6211E00330081B7BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 				079A6C182125143A00115947 /* HomeViewController.swift */,
 				0713CE7E212B68FF00E74F25 /* ProfileViewController.swift */,
 				0713CE80212B834600E74F25 /* CreatePostViewController.swift */,
-				0713CE82212D0D7900E74F25 /* ChooseFromAlbumViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -215,12 +212,14 @@
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 				"${BUILT_PRODUCTS_DIR}/ParseUI/ParseUI.framework",
+				"${BUILT_PRODUCTS_DIR}/Toucan/Toucan.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseUI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toucan.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -257,7 +256,6 @@
 				0713CE77212A4D4900E74F25 /* ParseClient.swift in Sources */,
 				07DAF2D7211E00330081B7BF /* AppDelegate.swift in Sources */,
 				0713CE7D212A5D1500E74F25 /* Post.swift in Sources */,
-				0713CE83212D0D7900E74F25 /* ChooseFromAlbumViewController.swift in Sources */,
 				079A6C192125143A00115947 /* HomeViewController.swift in Sources */,
 				0713CE7F212B68FF00E74F25 /* ProfileViewController.swift in Sources */,
 				0713CE81212B834600E74F25 /* CreatePostViewController.swift in Sources */,
